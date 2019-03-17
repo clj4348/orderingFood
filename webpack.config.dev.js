@@ -49,6 +49,12 @@ const devConfig = {
     path: devPath,
     filename: '[name].min.js'
   },
+  resolve: {
+      alias: {
+          component: path.resolve(srcRoot, 'components')
+      },
+      extensions: ['.js','.jsx']
+  },
   module:{
     rules:[
       {
@@ -73,7 +79,13 @@ const devConfig = {
         use:[
           'style-loader',
           'css-loader',
-          'sass-loader'
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: srcRoot + '/components/rem_fun.scss'
+            }
+          }
         ],
          include: srcRoot
       },
