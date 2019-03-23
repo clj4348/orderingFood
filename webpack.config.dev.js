@@ -17,7 +17,7 @@ function getHtmlArray(entryMap){
       htmlArray.push(new HtmlWebpackPlugin({
         filename: key + '.html',
         template: fileName,
-        chunks: [key]
+        chunks: [ 'common', key]
       }))
     }
   })

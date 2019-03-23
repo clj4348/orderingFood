@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './BottomBar.scss';
-import { changeTab } from '../actions/index.jsx'
+import { changeTab } from '../actions/tabAction.jsx'
 /**
 * @constructor <BottomBar>
 * @descrition 首页底部tab栏
@@ -38,8 +38,8 @@ class BottomBar extends React.Component {
 }
 const mapStateToProps = (state) => {
   return {
-    tabs: state.tabs,
-    activeKey: state.activeKey
+    tabs: state.tabReducer.tabs,
+    activeKey: state.tabReducer.activeKey
   }
 }
 const mapDispatchToProps = (dispatch) => {
