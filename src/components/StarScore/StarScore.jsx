@@ -26,7 +26,7 @@ class StarScore extends React.Component {
             starjsx.push(<div key={i + 'full'} className="star fullstar"></div>)
         }
 
-        // // 渲染半星jsx
+        // 渲染半星jsx
         if (halfstar) {
           for(let j=0; j<halfstar; j++){
             starjsx.push(<div key={j + 'half'} className="star halfstar"></div>)

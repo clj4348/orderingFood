@@ -2,7 +2,8 @@ import './ContentList.scss';
 import React from 'react';
 import { connect } from 'react-redux';
 import { getContentList } from '../../actions/contentListAction.jsx';
-import StarScore from 'component/StarScore/StarScore.jsx'
+import StarScore from 'component/StarScore/StarScore.jsx';
+import Loading from 'component/Loading/Loading.jsx'
 /**
  * @constructor <ContentList />
  * @description 附近商家列表
@@ -11,11 +12,35 @@ import StarScore from 'component/StarScore/StarScore.jsx'
 class ContentList extends React.Component {
     constructor(props) {
         super(props);
+        this.state={
+          isLoding: false,
+          lodingText: '加载中'
+        }
     }
-
     onLoadPage(){
+      let clientHeight = document.documentElement.clientHeight;
+      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      let scrollHeight = document.body.scrollHeight;
+      let proLoaDis = 30;
+      if((clientHeight + scrollTop) >= (scrollHeight - 30)){
+        if(this.props.page >3){
+          this.setState({
+            isLoding: true,
+            lodingText: '已完成'
+          })
+        } else {
+          this.props.fectchData(this.props.page);
+        }
+      }
     }
-
+    componentWillMount(){
+      this.props.fectchData(this.props.page);
+      window.addEventListener('scroll',this.onLoadPage.bind(this));
+    }
+    
+    componentWillUnmount(){
+      window.removeEventListener('scroll',this.onLoadPage.bind(this));
+    }
     /**
      * 渲染是否是新到和品牌标签
      * @param {*} data 
@@ -96,6 +121,7 @@ class ContentList extends React.Component {
                     <span className="title-line"></span>
                 </h4>
                 {this.listItemHtml()}
+                <Loading isLoding={this.state.isLoding}/>
             </div>
         );
     }
@@ -103,14 +129,16 @@ class ContentList extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        list: state.CotentListReducer.list
+        list: state.CotentListReducer.list,
+        page: state.CotentListReducer.currentPage
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  dispatch(getContentList());
   return {
-
+    fectchData(page){
+       dispatch(getContentList(page));
+    }
   }
 }
 
