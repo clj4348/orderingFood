@@ -6,6 +6,7 @@ import '../../static/reset.css';
 import '../../components/rem_fun.scss'
 import Main from './Main/Main.jsx'
 import store from './store.jsx'
+import { BrowserRouter} from 'react-router-dom';
 
 ReactDom.render(
   <Provider store={store}>
