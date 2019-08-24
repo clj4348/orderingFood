@@ -6,7 +6,7 @@ export const getOrderList = (page) => (dispatch) => {
     return
   }
   return (
-    axios.get('http://localhost:3000/order').then((res) => {
+    axios.get('https://www.easy-mock.com/mock/5d3296ca64f6451367e7bd70/example/orders').then((res) => {
       page++
       dispatch({
         type: ORDER_LIST,
