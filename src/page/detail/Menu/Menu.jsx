@@ -2,7 +2,10 @@ import './Menu.scss';
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { getListData, itemClick} from '../actions/menuAction'
+import { getListData, itemClick} from '../actions/menuAction';
+import MenuItem from './MenuItem/MenuItem';
+import ShopBar from './ShopBar/ShopBar';
+import ShopBarList from './ShopBarList/ShopBarList';
 /**
  * 详情菜单页面 <Menu/>
  */
@@ -15,9 +18,9 @@ class Menu extends React.Component {
 		let _array = array || [];
 		return _array.map((item, index) => {
 			return (
-				<div key={index}>
+				<MenuItem key={index} data={item} index={index}>
 					{item.name}
-				</div>
+				</MenuItem>
 			)
 		})
 	}
@@ -66,6 +69,7 @@ class Menu extends React.Component {
 		}
 	}
 	render(){
+		let showListFlag = this.props.showListFlag
 		return (
 			<div className="menu-inner">
 				<div className="left-bar">
@@ -76,6 +80,8 @@ class Menu extends React.Component {
 				<div className="right-content">
 					{this.renderRight()}
 				</div>
+				<ShopBar/>
+				{!showListFlag ? <ShopBarList/> : null }
 			</div>
 		);
 	}
@@ -85,7 +91,8 @@ export default connect(
   (state)=>{
 		return {
 			listData: state.menuReducers.listData,
-			currentLeftIndex: state.menuReducers.currentLeftIndex
+			currentLeftIndex: state.menuReducers.currentLeftIndex,
+			showListFlag: state.menuReducers.showListFlag
 		}
 	}
 )(Menu);

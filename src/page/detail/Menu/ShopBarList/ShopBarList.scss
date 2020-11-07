@@ -1,0 +1,49 @@
+.shop-bar-list{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 88;
+  .mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  .content{
+    position: absolute;
+    bottom: px2rem(50px);
+    background: #fff;
+    width: 100%;
+  }
+  .empty-shop-cart{
+    height: px2rem(30px);
+    font-size: 14px;
+    padding-right: px2rem(20px);
+    line-height: px2rem(30px);
+    text-align: right;
+    span{
+      display: inline-block;
+    }
+  }
+  .icon{
+    display: inline-block;
+    width: px2rem(14px);
+    height: px2rem(14px);
+    vertical-align: -2px;
+    background: url('./img/clear.jpeg') no-repeat center;
+    background-size: cover;
+    margin-right: px2rem(4px); 
+  }
+  .line{
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: #eee;
+    transform: scaleY(0.5);
+  }
+}

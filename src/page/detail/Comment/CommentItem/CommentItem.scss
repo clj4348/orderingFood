@@ -1,0 +1,26 @@
+.comment-item {
+  display: flex;
+  padding: 15px 15px 12px 15px;
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
+  .commnet-time {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: #898989;
+    font-size: 12px;
+  }
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  .nickname {
+    color: #f2f2f2;
+    font-size: 16px;
+  }
+  .item-right {
+    flex:1;
+    margin-left: 20px;
+  }
+}

@@ -50,10 +50,10 @@ const devConfig = {
     filename: '[name].min.js'
   },
   resolve: {
-      alias: {
-          component: path.resolve(srcRoot, 'components')
-      },
-      extensions: ['.js','.jsx']
+    alias: {
+      component: path.resolve(srcRoot, 'components')
+    },
+    extensions: ['.js','.jsx']
   },
   module:{
     rules:[

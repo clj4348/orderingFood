@@ -39,7 +39,24 @@
     vertical-align: px2rem(-4px);
     margin-right: px2rem(6px);
   }
-  .right-lieft-inner{
+  .right-list{
+    height: 100%;
+  }
+  .right-list-inner{
     font-size: px2rem(16px);
+    padding-bottom: px2rem(85px);
+  }
+  .right-content{
+    flex: 1;
+    margin-left: px2rem(10px);
+    height: 100%;
+    overflow: auto;
+  }
+  .right-title{
+    font-size: px2rem(13px);
+    color: #333;
+    margin-top: px2rem(10px);
+    padding-left: px2rem(4px);
+    border-left: px2rem(2px) solid #ffd161;
   }
 }

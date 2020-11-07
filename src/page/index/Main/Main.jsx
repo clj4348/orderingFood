@@ -23,7 +23,7 @@ class Main extends React.Component {
         <div>
           <Switch>
               <Route exact path="/" render={() => <Redirect to='/home'></Redirect>}></Route>
-               <Route path="/home" component={Home} />
+              <Route path="/home" component={Home} />
               <Route path="/order" component={Order} />
               <Route path="/my" component={My} />
           </Switch>
